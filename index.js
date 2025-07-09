@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
-dotenv.config(); // โหลด .env
-
+const envFile =
+  process.env.NODE_ENV === "production" ? ".env.production" : ".env";
+dotenv.config({ path: envFile });
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
